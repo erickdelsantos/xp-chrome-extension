@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "XP Helper",
+  "description": "Extension to enhance and simplify XP Investimentos client website experience",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "images/xp-icon.png"
+  },
+  "host_permissions": [
+    "https://experiencia.xpi.com.br/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://experiencia.xpi.com.br/emissao-bancaria/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "webNavigation"
+  ]
+}
